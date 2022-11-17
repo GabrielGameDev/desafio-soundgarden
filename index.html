@@ -33,7 +33,46 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
+                        <a class="btn btn-primary" onclick="acao()">reservar ingresso</a>
+                    
+                        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Reserve seu ingresso</h1>
+                                        <button type="button" onclick="fechar()" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="fechar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="form" type="reset" method="post" onsubmit="cadastroUsuario()">
+                        
+                                            <div class="nome-reserva">
+                                                <label for="exampleInputNome" class="form-label">Nome</label>
+                                                <input type="text" class="form-control" id="nome" value="" autocomplete="off"
+                                                    aria-describedby="nome">
+                        
+                                            </div>
+                        
+                                            <div class="email-reserva">
+                                                <label for="exampleInputEmail" class="form-label">E-mail</label>
+                                                <input type="email" class="form-control" id="email" value="" autocomplete="off"
+                                                    aria-describedby="email">
+                        
+                                            </div>
+                        
+                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" onclick="fechar()" class="btn btn-primary">Reservar</button>
+                                        <button type="reset" class="btn btn-primary">Limpar campos</button>
+                        
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        
+                        </div>
                 </article>
                 <article class="evento card p-5 m-3">
                     <h2>nome do evento - 05/03/2022</h2>
@@ -41,7 +80,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
+                    <a class="btn btn-primary" onclick="acao()">reservar ingresso</a>
                 </article>
                 <article class="evento card p-5 m-3">
                     <h2>nome do evento - 05/03/2022</h2>
@@ -49,7 +88,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
+                    <a class="btn btn-primary" onclick="acao()">reservar ingresso</a>
                 </article>
             </div>
             <div class="container text-center">
@@ -104,6 +143,7 @@
             </nav>
         </div>
     </footer>
+    <script src="/js/scriptAna.js"></script>
 </body>
 
 </html>
