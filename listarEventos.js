@@ -16,7 +16,46 @@ var requestOptions = {
             <p>
               ${evento.description}
             </p>
-            <a href="#" id="${evento._id}" class="btn btn-primary reservaIngresso">reservar ingresso</a>
+            <a href="#" id="${evento._id}" class="btn btn-primary reservaIngresso" onclick="acao()">reservar ingresso</a>
+            <div class="modal-dialog">
+            <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Reserve seu ingresso</h1>
+                        <button type="button" onclick="fechar()" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="fechar"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="form" type="reset" method="post" onsubmit="cadastroUsuario()">
+        
+                            <div class="nome-reserva">
+                                <label for="exampleInputNome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" value="" autocomplete="off"
+                                    aria-describedby="nome">
+        
+                            </div>
+        
+                            <div class="email-reserva">
+                                <label for="exampleInputEmail" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="email" value="" autocomplete="off"
+                                    aria-describedby="email">
+        
+                            </div>                        
+        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" onclick="fechar()" class="btn btn-primary">Reservar</button>
+                        <button type="reset" class="btn btn-primary">Limpar campos</button>
+        
+                    </div>
+                    </form>
+                </div>
+            </div>
+        
+        </div>
           </article>`
         );
         document.getElementById('eventos').innerHTML = eventos;
@@ -43,3 +82,17 @@ var requestOptions = {
       }
     }, 1000);
   };
+
+  function acao() {
+    let modal = document.querySelector('.modal')
+
+    modal.style.display = 'block';
+}
+
+function fechar() {
+  let modal = document.querySelector('.modal')
+
+  modal.style.display = 'none';
+
+}
+
