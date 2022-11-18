@@ -11,7 +11,7 @@ var requestOptions = {
       const eventos = data
         .map((evento) =>  
           `<article class="evento card p-5 m-3">
-            <h2>${evento.name} <br> ${evento.scheduled.slice(0,10).split("-").reverse().join("/")}</h2>
+            <h2 id="titulo">${evento.name} </h2> <h2 id="data"> ${evento.scheduled.slice(0,10).split("-").reverse().join("/")}</h2>
             <h4>${evento.attractions}</h4>
             <p>
               ${evento.description}
