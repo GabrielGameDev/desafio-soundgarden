@@ -43,14 +43,16 @@ var requestOptions = {
                                 <input type="email" class="form-control" id="email" value="" autocomplete="off"
                                     aria-describedby="email">
         
-                            </div>                        
-        
-                    </div>
-                    <div class="modal-footer">
+                            </div>     
+                            
+                            <div class="modal-footer">
                         <button type="button" onclick="cadastroUsuario()" class="btn btn-primary">Reservar</button>
                         <button type="reset" class="btn btn-primary">Limpar campos</button>
         
                     </div>
+        
+                    </div>
+                    
                     </form>
                 </div>
             </div>

@@ -28,7 +28,7 @@ if(index == 0){
                     aria-label="fechar"></button>
             </div>
             <div class="modal-body">
-                <form id="form" type="reset" method="post">
+                <form id="form">
     
                     <div class="nome-reserva">
                         <label for="exampleInputNome" class="form-label">Nome</label>
@@ -44,13 +44,14 @@ if(index == 0){
     
                     </div>
     
-    
-            </div>
-            <div class="modal-footer">
+                    <div class="modal-footer">
                 <button type="button" onclick="cadastroUsuario()" class="btn btn-primary">Reservar</button>
                 <button type="reset" class="btn btn-primary">Limpar campos</button>
     
             </div>
+    
+            </div>
+            
             </form>
         </div>
     </div>
