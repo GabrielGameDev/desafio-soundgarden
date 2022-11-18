@@ -16,7 +16,7 @@ var requestOptions = {
             <p>
               ${evento.description}
             </p>
-            <a href="#" id="${evento._id}" class="btn btn-primary reservaIngresso" onclick="acao()">reservar ingresso</a>
+            <a href="#" id="${evento._id}" class="btn btn-primary reservaIngresso" onclick="acao('${evento._id}')">reservar ingresso</a>
             <div class="modal-dialog">
             <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         
@@ -29,7 +29,7 @@ var requestOptions = {
                     </div>
 
                     <div class="modal-body">
-                        <form id="form" type="reset" method="post" onsubmit="cadastroUsuario()">
+                        <form id="form" type="reset" method="post">
         
                             <div class="nome-reserva">
                                 <label for="exampleInputNome" class="form-label">Nome</label>
@@ -47,7 +47,7 @@ var requestOptions = {
         
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" onclick="fechar()" class="btn btn-primary">Reservar</button>
+                        <button type="button" onclick="cadastroUsuario()" class="btn btn-primary">Reservar</button>
                         <button type="reset" class="btn btn-primary">Limpar campos</button>
         
                     </div>
@@ -83,10 +83,12 @@ var requestOptions = {
     }, 1000);
   };
 
-  function acao() {
+  function acao(id) {
     let modal = document.querySelector('.modal')
 
     modal.style.display = 'block';
+
+    localStorage.setItem('id', id)
 }
 
 function fechar() {
@@ -94,5 +96,41 @@ function fechar() {
 
   modal.style.display = 'none';
 
+}
+
+function fazReservas(url, body) {
+  console.log("Body=", body);
+ let request = new XMLHttpRequest()
+  request.open("POST", url, true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(JSON.stringify(body));
+
+  request.onload = function() {
+      console.log(this.responseText);
+  }
+
+  fechar()
+  return request.responseText
+
+  
+}
+
+function cadastroUsuario(){
+ console.log("cliquei pra cadstrar")
+ event.preventDefault()
+ let url = "https://xp41-soundgarden-api.herokuapp.com/bookings";
+ let nome = document.getElementById("nome").value;
+ let email = document.getElementById("email").value;
+ 
+
+ body = {
+     "owner_name": nome,
+     "owner_email": email,
+     "number_tickets": 1,
+     "event_id": localStorage.getItem('id')
+ }
+
+ console.log(body)
+ fazReservas(url, body);
 }
 
