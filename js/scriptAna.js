@@ -28,7 +28,8 @@ function appendData(data) {
        
     td_nome.innerText = data[i].owner_name ;
     td_email.innerText = data[i].owner_email;
-    // td_evento.innerText = data[i].event.name;
+    if(data[i].event != null)
+      td_evento.innerText = data[i].event.name;
 
     let div = document.createElement("div");
 
