@@ -10,7 +10,7 @@ async function getEventos(){
     for (let index = 0; index < 3; index++) {
         console.log(data[index]._id)
         eventos += `<article class="evento card p-5 m-3">
-        <h2>${data[index].name} - ${data[index].scheduled}</h2>
+        <h2>${data[index].name} - ${data[index].scheduled.slice(0,10).split("-").reverse().join("/")}</h2>
         <h4>${data[index].attractions}</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
             dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
